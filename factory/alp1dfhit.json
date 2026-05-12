@@ -1,0 +1,15 @@
+{
+	"name": "alp1dfhit",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "72d78aa3-b343-4a53-a607-a7a4e6249fcd",
+		"tenantId": "fbfa1042-51fe-44a2-9189-0702a97ced6a"
+	}
+}

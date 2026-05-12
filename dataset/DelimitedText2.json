@@ -1,0 +1,108 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"get_folder": {
+				"type": "String"
+			},
+			"get_file": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().get_file",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().get_folder",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Transaction_ID",
+				"type": "String"
+			},
+			{
+				"name": "Reference_No",
+				"type": "String"
+			},
+			{
+				"name": "Created_By",
+				"type": "String"
+			},
+			{
+				"name": "Account_Number",
+				"type": "String"
+			},
+			{
+				"name": "Account_Holder",
+				"type": "String"
+			},
+			{
+				"name": "Bank_Name",
+				"type": "String"
+			},
+			{
+				"name": "Branch",
+				"type": "String"
+			},
+			{
+				"name": "IFSC_Code",
+				"type": "String"
+			},
+			{
+				"name": "Transaction_Type",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			},
+			{
+				"name": "Currency",
+				"type": "String"
+			},
+			{
+				"name": "Transaction_DateTime",
+				"type": "String"
+			},
+			{
+				"name": "Transaction_Mode",
+				"type": "String"
+			},
+			{
+				"name": "Narration",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "Balance_After",
+				"type": "String"
+			},
+			{
+				"name": "Feed Run Date Time",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
