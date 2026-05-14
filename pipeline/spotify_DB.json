@@ -67,7 +67,7 @@
 					"source": {
 						"type": "SqlServerSource",
 						"sqlReaderQuery": {
-							"value": "select * from @{pipeline().parameters.schema_name}.@{pipeline().parameters.table_name} where @{pipeline().parameters.cdc_col} > '@{activity('GetCDCDate').output.value[0].dc}'",
+							"value": "select * from @{pipeline().parameters.schema_name}.@{pipeline().parameters.table_name} where @{pipeline().parameters.cdc_col} >'@{if(empty(pipeline().parameters.from_date),activity('GetCDCDate').output.value[0].dc,pipeline().parameters.from_date)}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -302,6 +302,9 @@
 			},
 			"cdc_col": {
 				"type": "String"
+			},
+			"from_date": {
+				"type": "string"
 			}
 		},
 		"variables": {
